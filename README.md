@@ -26,7 +26,7 @@
 <h2>代码库文件夹说明</h2>
 <p>
  bin 中存放了编译后的二进制文件。<br>
- example 中存放了一张使用 iPhone 7 拍摄的 Display P3 色域的照片，但是并未内嵌 ICC 色彩配置文件。<br>
+ example 中存放了一张使用 iPhone 7 拍摄的 Display P3 色域的照片，但是并未内嵌 ICC 色彩配置文件。您可以使用本程序向其中嵌入 Display P3 配置文件，并对比嵌入前和嵌入后的不同。<br>
  icc-profile 中存放了许多常用色彩文件，包括 Display P3 和 sRGB 等，这是我从我的 Mac 上拷出来的。<br>
  src 文件夹中包含了此程序的所有源代码。<br>
 </p>
