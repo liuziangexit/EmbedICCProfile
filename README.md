@@ -4,7 +4,7 @@
 <h2>什么是 ICC 色彩配置文件</h2>
 <p>
   ICC 色彩配置文件为应用程序提供参考，指示图像色彩的正确显示方式。<br>
-  <img src="/web/without-icc.JPG"><img src="/web/with-icc.JPG">
+  <img src="/web/without-icc.JPG"><img src="/web/with-icc.JPG"><br>
   上面是两张由 iPhone 7 拍摄的同一张照片的局部对比图，第一张图片没有嵌入 ICC 配置文件，而第二张图片使用本程序嵌入了正确的配置文件有。<br>
   由于 iPhone 7 拍摄的照片使用 Display P3 色域存储，所以当这张图片出现在其它 sRGB 设备上时，如果没有正确的色彩配置文件的指示，应用程序将无法显示准确的色彩。
 </p>
