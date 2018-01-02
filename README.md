@@ -12,7 +12,7 @@
 <h2>此程序如何使用</h2>
 <p>
   推荐的做法是自己编译源代码，但是我也提供了编译后的二进制文件。您可以在 bin 文件夹找到此程序的二进制文件(使用 Visual Studio 2015 编译)。<br><br>
-  用法是 EmbedICCProfile JPG文件 ICC文件<br><br>
+  用法是 EmbedICCProfile JPG文件 ICC文件<br>
   如: EmbedICCProfile 1.jpg "Display P3.icc"<br><br>
   您可能需要键入文件的绝对路径，此外，当文件名包含空格时，您应该使用英文引号将其括起。<br><br>
   运行后，将会将指定的 ICC 配置文件(参数1)嵌入到指定的 JPG 文件(参数2)。
