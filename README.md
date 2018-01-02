@@ -23,3 +23,10 @@
   读取文件那部分代码(liuzianglib中)目测在 g++ 或 clang 下是过不了编译的，不过你只需要自己写一个读取文件的代码就好了。<br>
   此程序核心代码 EmbedICCProfile 函数理论上是可以跨平台的，没有什么问题(不过我没试过)。
 </p>
+<h2>代码库文件夹说明</h2>
+<p>
+ bin 中存放了编译后的二进制文件。<br>
+ example 中存放了一张使用 iPhone 7 拍摄的 Display P3 色域的照片，但是并未内嵌 ICC 色彩配置文件。<br>
+ icc-profile 中存放了许多常用色彩文件，包括 Display P3 和 sRGB 等，这是我从我的 Mac 上拷出来的。<br>
+ src 文件夹中包含了此程序的所有源代码。<br>
+</p>
