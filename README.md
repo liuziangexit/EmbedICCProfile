@@ -15,7 +15,7 @@
   用法是 EmbedICCProfile JPG文件 ICC文件<br>
   如: EmbedICCProfile 1.jpg "Display P3.icc"<br><br>
   您可能需要键入文件的绝对路径，此外，当文件名包含空格时，您应该使用英文引号将其括起。<br><br>
-  运行后，将会将指定的 ICC 配置文件(参数1)嵌入到指定的 JPG 文件(参数2)。
+  运行后，会将指定的 ICC 配置文件(参数1)嵌入到指定的 JPG 文件(参数2)。
 </p>
 <h2>跨平台</h2>
 <p>
