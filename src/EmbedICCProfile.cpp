@@ -25,8 +25,8 @@ static const std::string ICC_PROFILE_Identify = { 0x49, 0x43, 0x43, 0x5F, 0x50, 
 static int SOIandApp0SizeWithoutThumbnail = SOI.size() + App0Marker.size() + 16; //SOI+APP0段长度(不包含略缩图)
 static int SegmentLengthSize = 2; //段长度是2字节
 
-								  //判断计算机字节序
-								  //什么是字节序: https://zhuanlan.zhihu.com/p/21388517
+//判断计算机字节序
+//什么是字节序: https://zhuanlan.zhihu.com/p/21388517
 bool isLittleEndian() {
 	int i = 0x11223344;
 	char c = *reinterpret_cast<char*>(&i);
@@ -121,13 +121,13 @@ void file_ptr_deleter(FILE *fp) {
 //什么是unique_ptr: http://en.cppreference.com/w/cpp/memory/unique_ptr
 using file_ptr = std::unique_ptr<FILE, decltype(&file_ptr_deleter)>;
 
-//文件是否存在
+//判断文件是否存在
 inline bool file_exists(const std::string& filename)noexcept {
 	file_ptr ptr(fopen(filename.c_str(), "r"), file_ptr_deleter);
 	return (bool)ptr;
 }
 
-//文件是否存在
+//判断文件是否存在
 inline bool file_exists(const std::string& filename, file_ptr& inputptr)noexcept {
 	file_ptr ptr(fopen(filename.c_str(), "r"), file_ptr_deleter);
 	inputptr = std::move(ptr);
@@ -196,6 +196,7 @@ int main(int argc, char **argv)
 			return 0;
 		}
 
+		//关闭文件句柄
 		fp.reset(0);
 
 		//嵌入色彩配置文件到图像
