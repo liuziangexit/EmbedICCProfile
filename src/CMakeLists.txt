@@ -22,6 +22,11 @@ if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
     set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS} /Za")
 endif()
 
+install(
+TARGETS EmbedICCProfile
+RUNTIME DESTINATION bin
+)
+
 message(STATUS "System            : ${CMAKE_SYSTEM_NAME}")
 message(STATUS "Project           : ${PROJECT_NAME}")
 message(STATUS "Project directory : ${PROJECT_SOURCE_DIR}")
