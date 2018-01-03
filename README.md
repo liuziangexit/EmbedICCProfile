@@ -23,7 +23,10 @@ ICC 色彩配置文件为应用程序提供参考，指示图像色彩的正确�
 </p>
 <h2>使用</h2>
 <p>
-EmbedICCProfile xxx.jpg xxx.icc<br>
+ 
+```
+EmbedICCProfile xxx.jpg xxx.icc
+```
 如: EmbedICCProfile 1.jpg "Display P3.icc"<br><br>
 您可能需要键入文件的绝对路径，此外，当文件名包含空格时，您应该使用英文引号将其括起。<br>
 运行后，会将指定的 ICC 配置文件(参数2)嵌入到指定的 JPG 文件(参数1)。
