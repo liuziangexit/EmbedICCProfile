@@ -7,12 +7,14 @@
 
 //标准库
 #include <iostream>
+#include <algorithm>
 #include <string>
 #include <vector>
 #include <memory>
 
 //C标准库
 #include <cstdio>
+#include <cstring>
 
 static const std::string SOI{ char(0xFF), char(0xD8) }; //SOI开始
 static const std::string App0Marker = { char(0xFF), char(0xE0) }; //APP0标记
@@ -150,17 +152,17 @@ int main(int argc, char **argv)
 	{
 		//检查参数
 		if (argc < 3) {
-			std::cout << "Usage: EmbedICCProfile xxx.jpg xxx.icc";
+			std::cout << "Usage: EmbedICCProfile xxx.jpg xxx.icc\n";
 			return 0;
 		}
 
 		//检查文件是否存在
 		if (!file_exists(argv[1])) {
-			std::cout << std::string("File ") + std::string(argv[1]) + " not found";
+			std::cout << std::string("File ") + std::string(argv[1]) + " not found\n";
 			return 0;
 		}
 		if (!file_exists(argv[2])) {
-			std::cout << std::string("File ") + std::string(argv[2]) + " not found";
+			std::cout << std::string("File ") + std::string(argv[2]) + " not found\n";
 			return 0;
 		}
 
@@ -175,22 +177,22 @@ int main(int argc, char **argv)
 		//读取jpg图像
 		file_ptr fp(fopen(argv[1], "rb"), file_ptr_deleter);
 		if (!fp) {
-			std::cout << "Can not open " + std::string(argv[1]);
+			std::cout << "Can not open " + std::string(argv[1]) << "\n";
 			return 0;
 		}
 		if (fread(jpg.get(), sizeof(unsigned char), reserve_size, fp.get()) != jpg_size) {
-			std::cout << "Can not read " + std::string(argv[1]);
+			std::cout << "Can not read " + std::string(argv[1]) << "\n";
 			return 0;
 		}
 
 		//读取色彩配置文件
 		fp.reset(fopen(argv[2], "rb"));
 		if (!fp) {
-			std::cout << "Can not open " + std::string(argv[2]);
+			std::cout << "Can not open " + std::string(argv[2]) << "\n";
 			return 0;
 		}
 		if (fread(icc.get(), sizeof(unsigned char), icc_size, fp.get()) != icc_size) {
-			std::cout << "Can not read " + std::string(argv[2]);
+			std::cout << "Can not read " + std::string(argv[2]) << "\n";
 			return 0;
 		}
 
@@ -199,22 +201,22 @@ int main(int argc, char **argv)
 		//嵌入色彩配置文件到图像
 		int outsize = 0;
 		if (!EmbedICCProfile(jpg.get(), jpg_size, reserve_size, icc.get(), icc_size, &outsize)) {
-			std::cout << "EmbedICCProfile failed";
+			std::cout << "EmbedICCProfile failed\n";
 			return 0;
 		}
 		if (outsize == 0) {
-			std::cout << "EmbedICCProfile failed";
+			std::cout << "EmbedICCProfile failed\n";
 			return 0;
 		}
 
 		//写入图像
 		fp.reset(fopen(argv[1], "wb"));
 		if (!fp) {
-			std::cout << "write file failed";
+			std::cout << "write file failed\n";
 			return 0;
 		}
 		if (fwrite(jpg.get(), sizeof(unsigned char), outsize, fp.get()) != outsize) {
-			std::cout << "write file failed";
+			std::cout << "write file failed\n";
 			return 0;
 		}
 
