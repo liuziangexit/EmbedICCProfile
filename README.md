@@ -3,7 +3,7 @@
 此程序已在:<br>
 x86 / Windows 10 / MSVC 15<br>
 x86 / macOS 10.13 / clang-902<br>
-ARM / Raspbian GUN/Linux 8 / g++-4.9.2<br>
+ARM / Raspbian GUN-Linux 8 / g++-4.9.2<br>
 成功通过编译并正常工作。
 
 <h2>什么是 ICC 色彩配置文件</h2>
