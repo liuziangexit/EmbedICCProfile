@@ -6,11 +6,9 @@
 
 #include <iostream>
 #include <algorithm>
-#include <string>
 #include <memory>
 
 #include <cstdio>
-#include <cstring>
 #include <cstdint>
 
 static constexpr unsigned char soi[]{ 0xff,0xd8 };
@@ -126,11 +124,11 @@ int main(int argc, char **argv) {
 		}
 
 		if (!file_exists(argv[1])) {
-			std::cout << std::string("File ") + std::string(argv[1]) + " not found\n";
+			std::cout << "File " << argv[1] << " not found\n";
 			return 0;
 		}
 		if (!file_exists(argv[2])) {
-			std::cout << std::string("File ") + std::string(argv[2]) + " not found\n";
+			std::cout << "File " << argv[2] << " not found\n";
 			return 0;
 		}
 
@@ -143,21 +141,21 @@ int main(int argc, char **argv) {
 
 		auto fp = get_file_ptr(fopen(argv[1], "rb"));
 		if (!fp) {
-			std::cout << "Can not open " + std::string(argv[1]) << "\n";
+			std::cout << "Can not open " << argv[1] << "\n";
 			return 0;
 		}
 		if (fread(jpg.get(), sizeof(unsigned char), reserve_size, fp.get()) != jpg_size) {
-			std::cout << "Can not read " + std::string(argv[1]) << "\n";
+			std::cout << "Can not read " << argv[1] << "\n";
 			return 0;
 		}
 
 		fp.reset(fopen(argv[2], "rb"));
 		if (!fp) {
-			std::cout << "Can not open " + std::string(argv[2]) << "\n";
+			std::cout << "Can not open " << argv[2] << "\n";
 			return 0;
 		}
 		if (fread(icc.get(), sizeof(unsigned char), icc_size, fp.get()) != icc_size) {
-			std::cout << "Can not read " + std::string(argv[2]) << "\n";
+			std::cout << "Can not read " << argv[2] << "\n";
 			return 0;
 		}
 
