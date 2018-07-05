@@ -20,7 +20,7 @@ static constexpr unsigned char icc_profile_identify[]{ 0x49, 0x43, 0x43, 0x5f, 0
 static constexpr int soi_and_app0_size_without_thumbnail = sizeof(soi) + sizeof(app0_marker) + 16;
 static constexpr int segment_length_size = 2;
 static const bool is_little_endian = [] {
-	const unsigned int i = 0x11223344;
+	const uint32_t i = 0x11223344;
 	return *reinterpret_cast<const unsigned char*>(&i) == 0x44;
 }();
 
